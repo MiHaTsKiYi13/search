@@ -4,15 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Tab</Main></title>
+    <title>New Tab</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <div class="content">
             <img src="icon.jpg" alt="Icon" class="icon">
-            <form action="https://duckduckgo.com/" method="get" class="search-form">
+            <div class="search-options">
+                <select name="search-engine" class="search-engine-select">
+                    <option value="https://duckduckgo.com/" selected>DuckDuckGo</option>
+                    <option value="google">Google</option>
+                    <option value="yahoo">Yahoo</option>
+                    <option value="bing">Bing</option>
+                </select>
+            </div>
+            <form id="search-form" action="https://duckduckgo.com/" method="get" class="search-form">
                 <input type="text" name="q" placeholder="Search with DuckDuckGo" class="search-bar" required>
                 <button type="submit" class="search-button">Search</button>
             </form>
