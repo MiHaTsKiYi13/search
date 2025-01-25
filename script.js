@@ -53,8 +53,13 @@ window.addEventListener('load', () => {
 		updateSearchEngine() // Используем поиск по умолчанию
 	}
 
-	// Устанавливаем фокус на строку поиска
-	searchBar.focus()
+	// Устанавливаем фокус на строку поиска при нажатии любой клавиши
+	document.addEventListener('keydown', event => {
+		if (event.key !== 'F') {
+			// Фокусируемся на строке поиска, если не нажата клавиша F
+			searchBar.focus()
+		}
+	})
 })
 
 // Слушатель события изменения поисковой системы
