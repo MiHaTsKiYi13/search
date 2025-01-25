@@ -3,13 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: all 0.3s ease-in-out; /* Универсальная плавная анимация */
+    font-family: 'Poppins', sans-serif; /* Кастомный шрифт */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Фон и выравнивание по центру */
 body {
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(20, 20, 20, 1));
+    background: linear-gradient(135deg, #0a0a0a, #141414);
     color: #E0E0E0;
     display: flex;
     justify-content: center;
@@ -17,19 +17,11 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background-size: 200% 200%;
-    animation: gradientBG 45s linear infinite; /* Умеренно плавный эффект */
+    background-size: 300% 300%;
+    animation: gradientBG 15s ease infinite; /* Эффект смены градиента */
 }
 
-/* Плавная анимация фона */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
+
 
 /* Контейнер для всего контента */
 .container {
@@ -39,8 +31,8 @@ body {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    opacity: 0;
     animation: fadeInContainer 1.2s ease-out forwards;
+    opacity: 0;
 }
 
 /* Анимация появления контейнера */
@@ -57,14 +49,13 @@ body {
 
 /* Оформление контейнера с контентом */
 .content {
-    background-color: rgba(30, 30, 30, 0.9); /* Чуть темнее для большего контраста */
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.9));
     padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Уменьшена интенсивность */
-    backdrop-filter: blur(6px); /* Чуть меньше размытие */
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.4s ease-in-out;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 0.8s ease-out;
 }
 
 /* Анимация появления */
@@ -81,79 +72,72 @@ body {
 
 /* Эффект при наведении на контейнер */
 .content:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Лёгкая тень */
-    transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(1.03);
 }
 
 /* Оформление изображения */
 .icon {
-    width: 75px;
+    width: 75px; /* Оригинальный размер */
     height: 75px;
     margin-bottom: 20px;
-    border-radius: 50%;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Меньшая тень */
+    border-radius: 50%; /* Закруглённость */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Эффект при наведении на иконку */
 .icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Форма поиска */
-.search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Поле ввода */
 .search-bar {
-    width: 320px;
+    width: 340px;
     padding: 14px;
     border: 2px solid #3a3a3a;
     border-radius: 50px;
     background-color: rgba(40, 40, 40, 0.9);
     color: #e0e0e0;
     font-size: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.4s ease-in-out;
 }
 
 /* Анимация при вводе текста */
 .search-bar:focus {
-    border-color: #0085d4;
-    background-color: rgba(50, 50, 50, 1);
-    box-shadow: 0 0 15px rgba(0, 133, 212, 0.6);
+    border-color: #00aaff;
+    background: linear-gradient(145deg, rgba(50, 50, 50, 1), rgba(30, 30, 30, 1));
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
 }
 
 /* Кнопка поиска */
 .search-button {
-    padding: 12px 20px;
-    background-color: rgba(0, 133, 212, 0.8);
+    padding: 12px 30px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 173, 255, 0.9));
     color: white;
     border: none;
     border-radius: 50px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-left: 10px;
-    opacity: 0.9;
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), box-shadow 0.2s ease-in-out;
 }
 
 /* Эффект при наведении на кнопку */
 .search-button:hover {
-    background-color: rgba(0, 133, 212, 1);
-    transform: scale(1.03);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.6);
 }
 
 /* Эффект при нажатии на кнопку */
 .search-button:active {
-    transform: scale(0.98);
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
 }
 
-/* Стиль для выпадающего списка */
+/* Выпадающий список */
 .search-engine-select {
     background-color: rgba(40, 40, 40, 0.9);
     border: 2px solid #3a3a3a;
@@ -170,8 +154,8 @@ body {
 
 /* Эффект при наведении на выпадающий список */
 .search-engine-select:hover {
-    background-color: rgba(50, 50, 50, 1);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(50, 50, 50, 1), rgba(40, 40, 40, 0.9));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Адаптивность */
@@ -186,3 +170,4 @@ body {
         width: 100%;
     }
 }
+

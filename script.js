@@ -101,3 +101,5 @@ searchEngineSelect.title = `Available options:
 2. Yahoo
 3. Bing
 4. DuckDuckGo`
+
+
