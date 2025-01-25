@@ -100,35 +100,3 @@ searchEngineSelect.title = `Available options:
 2. Yahoo
 3. Bing
 4. DuckDuckGo`
-
-// Функция для отображения окна
-function showInfoWindow() {
-	infoWindow.style.display = 'block' // Показываем окно
-}
-
-// Функция для скрытия модального окна
-function closeInfoWindow() {
-	infoWindow.style.display = 'none' // Скрываем окно
-}
-
-
-
-// Закрытие окна при нажатии на клавишу ESC
-document.addEventListener('keydown', function (event) {
-	if (event.key === 'Escape') {
-		closeInfoWindow()
-	}
-})
-
-// Закрытие при нажатии на кнопку закрытия
-if (closeButton) {
-	closeButton.addEventListener('click', closeInfoWindow)
-}
-
-// Слушаем нажатие клавиши Tab
-document.addEventListener('keydown', e => {
-	if (e.key === 'Tab') {
-		showInfoWindow()
-		autoCloseInfoWindow()
-	}
-})

@@ -154,7 +154,8 @@ body {
     border: 2px solid #3a3a3a;
     border-radius: 50px;
     color: #e0e0e0;
-    font-size: 15px;
+    font-size: 15px; /* Фиксируем размер шрифта */
+    font-family: 'Poppins', sans-serif; /* Фиксируем шрифт */
     padding: 10px;
     position: absolute;
     top: 15px;
@@ -169,6 +170,15 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
+/* Убираем изменение стилей текста при взаимодействии */
+.search-engine-select:focus,
+.search-engine-select:active {
+    font-size: 15px; /* Остается неизменным */
+    font-family: 'Poppins', sans-serif; /* Остается неизменным */
+    color: #e0e0e0; /* Остается неизменным */
+}
+
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .search-bar {
@@ -180,50 +190,4 @@ body {
     .search-button {
         width: 100%;
     }
-}
-
-/* Оформление для модального окна с информацией */
-.info-window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(40, 40, 40, 0.9); /* Такой же цвет и прозрачность, как у основного окна */
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: none;
-    text-align: center;
-    width: 400px;
-    height: 400px;
-    z-index: 1000;
-    animation: fadeInInfoWindow 1s ease-out;
-}
-
-/* Анимация для появления модального окна */
-@keyframes fadeInInfoWindow {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-/* Иконка в модальном окне */
-.info-icon {
-    width: 50px;
-    height: auto;
-    margin-bottom: 15px;
-}
-
-.info-text h2 {
-    margin: 0;
-}
-
-.info-text p {
-    margin: 10px 0;
-    font-size: 14px;
 }
