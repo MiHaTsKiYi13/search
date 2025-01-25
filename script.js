@@ -2,6 +2,8 @@
 const searchEngineSelect = document.querySelector('.search-engine-select')
 const searchForm = document.getElementById('search-form')
 const searchBar = document.querySelector('.search-bar')
+const infoWindow = document.querySelector('.info-window')
+const closeButton = document.querySelector('.close-button') // Кнопка для закрытия
 
 // Функция для обновления action и placeholder на основе куки
 function updateSearchEngine() {
@@ -56,7 +58,6 @@ window.addEventListener('load', () => {
 	// Устанавливаем фокус на строку поиска при нажатии любой клавиши
 	document.addEventListener('keydown', event => {
 		if (event.key !== 'F') {
-			// Фокусируемся на строке поиска, если не нажата клавиша F
 			searchBar.focus()
 		}
 	})
@@ -69,13 +70,11 @@ searchEngineSelect.addEventListener('change', updateSearchEngine)
 searchForm.addEventListener('submit', event => {
 	const query = searchBar.value.trim()
 
-	// Проверяем, похоже ли это на домен
 	if (query.match(/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
 		event.preventDefault()
 		const url = query.startsWith('http') ? query : `https://${query}`
 		window.location.href = url
 	} else if (!query) {
-		// Если строка пустая
 		event.preventDefault()
 		alert('Please enter a search query or URL.')
 	}
@@ -102,4 +101,34 @@ searchEngineSelect.title = `Available options:
 3. Bing
 4. DuckDuckGo`
 
+// Функция для отображения окна
+function showInfoWindow() {
+	infoWindow.style.display = 'block' // Показываем окно
+}
 
+// Функция для скрытия модального окна
+function closeInfoWindow() {
+	infoWindow.style.display = 'none' // Скрываем окно
+}
+
+
+
+// Закрытие окна при нажатии на клавишу ESC
+document.addEventListener('keydown', function (event) {
+	if (event.key === 'Escape') {
+		closeInfoWindow()
+	}
+})
+
+// Закрытие при нажатии на кнопку закрытия
+if (closeButton) {
+	closeButton.addEventListener('click', closeInfoWindow)
+}
+
+// Слушаем нажатие клавиши Tab
+document.addEventListener('keydown', e => {
+	if (e.key === 'Tab') {
+		showInfoWindow()
+		autoCloseInfoWindow()
+	}
+})

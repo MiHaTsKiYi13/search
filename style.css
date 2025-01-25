@@ -21,7 +21,18 @@ body {
     animation: gradientBG 15s ease infinite; /* Эффект смены градиента */
 }
 
-
+/* Анимация для смены фона */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 /* Контейнер для всего контента */
 .container {
@@ -171,3 +182,48 @@ body {
     }
 }
 
+/* Оформление для модального окна с информацией */
+.info-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(40, 40, 40, 0.9); /* Такой же цвет и прозрачность, как у основного окна */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    z-index: 1000;
+    animation: fadeInInfoWindow 1s ease-out;
+}
+
+/* Анимация для появления модального окна */
+@keyframes fadeInInfoWindow {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Иконка в модальном окне */
+.info-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.info-text h2 {
+    margin: 0;
+}
+
+.info-text p {
+    margin: 10px 0;
+    font-size: 14px;
+}
