@@ -9,7 +9,7 @@
 
 /* Фон и выравнивание по центру */
 body {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(18, 18, 18, 0.9));
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(20, 20, 20, 1));
     color: #E0E0E0;
     display: flex;
     justify-content: center;
@@ -18,8 +18,7 @@ body {
     margin: 0;
     overflow: hidden;
     background-size: 200% 200%;
-    animation: gradientBG 60s linear infinite; /* Увеличено время анимации для медленного эффекта */
-
+    animation: gradientBG 45s linear infinite; /* Умеренно плавный эффект */
 }
 
 /* Плавная анимация фона */
@@ -48,7 +47,7 @@ body {
 @keyframes fadeInContainer {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
@@ -58,21 +57,21 @@ body {
 
 /* Оформление контейнера с контентом */
 .content {
-    background-color: rgba(42, 42, 42, 0.85); /* Прозрачный фон */
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px); /* Эффект размытия фона */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.5s ease-in-out;
-    animation: fadeIn 0.9s ease-out;
+    background-color: rgba(30, 30, 30, 0.9); /* Чуть темнее для большего контраста */
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Уменьшена интенсивность */
+    backdrop-filter: blur(6px); /* Чуть меньше размытие */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
+    animation: fadeIn 1s ease-out;
 }
 
 /* Анимация появления */
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     100% {
         opacity: 1;
@@ -82,32 +81,23 @@ body {
 
 /* Эффект при наведении на контейнер */
 .content:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-    transform: scale(1.02);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Лёгкая тень */
+    transform: scale(1.01);
 }
 
 /* Оформление изображения */
 .icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 25px;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
     border-radius: 50%;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Меньшая тень */
 }
 
 /* Эффект при наведении на иконку */
 .icon:hover {
     transform: scale(1.1);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Эффект при нажатии на иконку */
-.icon:active {
-    transform: scale(1.05);
-    transition: transform 0.1s ease-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Форма поиска */
@@ -116,94 +106,83 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    position: relative;
-    z-index: 2;
 }
 
 /* Поле ввода */
 .search-bar {
-    width: 350px;
-    padding: 15px;
-    border: 2px solid #444444;
+    width: 320px;
+    padding: 14px;
+    border: 2px solid #3a3a3a;
     border-radius: 50px;
-    background-color: rgba(51, 51, 51, 0.85);
-    color: #E0E0E0;
-    font-size: 18px;
-    transition: all 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background-color: rgba(40, 40, 40, 0.9);
+    color: #e0e0e0;
+    font-size: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
 }
 
 /* Анимация при вводе текста */
 .search-bar:focus {
-    border-color: #0078d4;
-    background-color: rgba(51, 51, 51, 1);
-    box-shadow: 0 0 20px rgba(0, 120, 212, 0.7);
-    transform: scale(1.05);
+    border-color: #0085d4;
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 0 0 15px rgba(0, 133, 212, 0.6);
 }
 
 /* Кнопка поиска */
 .search-button {
-    padding: 15px 25px;
-    background-color: rgba(0, 120, 212, 0.8);
+    padding: 12px 20px;
+    background-color: rgba(0, 133, 212, 0.8);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.4s ease-in-out, transform 0.4s ease-in-out;
-    margin-left: 15px;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px;
     opacity: 0.9;
 }
 
 /* Эффект при наведении на кнопку */
 .search-button:hover {
-    background-color: rgba(0, 120, 212, 1);
-    transform: scale(1.05);
-    opacity: 1;
+    background-color: rgba(0, 133, 212, 1);
+    transform: scale(1.03);
 }
 
 /* Эффект при нажатии на кнопку */
 .search-button:active {
-    background-color: rgba(0, 120, 212, 0.9);
     transform: scale(0.98);
-    transition: transform 0.1s ease-out;
 }
 
 /* Стиль для выпадающего списка */
 .search-engine-select {
-    background-color: rgba(51, 51, 51, 0.85);
-    border: 2px solid #444444;
+    background-color: rgba(40, 40, 40, 0.9);
+    border: 2px solid #3a3a3a;
     border-radius: 50px;
-    color: #E0E0E0;
-    font-size: 16px;
-    padding: 12px;
+    color: #e0e0e0;
+    font-size: 15px;
+    padding: 10px;
     position: absolute;
     top: 15px;
     right: 15px;
     cursor: pointer;
-    transition: all 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Эффект при наведении на выпадающий список */
 .search-engine-select:hover {
-    background-color: rgba(51, 51, 51, 1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
     .search-bar {
-        width: 80%;
+        width: 90%;
     }
 }
 
-/* Кнопка на мобильных устройствах */
 @media (max-width: 480px) {
     .search-button {
         width: 100%;
-        padding: 12px 0;
     }
 }
