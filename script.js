@@ -5,6 +5,31 @@ const searchBar = document.querySelector('.search-bar')
 const infoWindow = document.querySelector('.info-window')
 const closeButton = document.querySelector('.close-button') // Кнопка для закрытия
 
+// Список популярных сайтов для автозаполнения
+const sites = {
+	youtube: 'youtube.com',
+	google: 'google.com',
+	facebook: 'facebook.com',
+	github: 'github.com',
+	twitter: 'twitter.com',
+	instagram: 'instagram.com',
+	twitch: 'twitch.tv',
+	reddit: 'reddit.com',
+	stackoverflow: 'stackoverflow.com',
+	wikipedia: 'wikipedia.org',
+	medium: 'medium.com',
+	linkedin: 'linkedin.com',
+	pinterest: 'pinterest.com',
+	amazon: 'amazon.com',
+	ebay: 'ebay.com',
+	spotify: 'spotify.com',
+	netflix: 'netflix.com',
+	apple: 'apple.com',
+	telegram: 'web.telegram.org',
+	de3nake: 'https://mihatskiyi13.github.io/de3nake.mihatskiyi13/',
+	// Добавляем сюда любые другие популярные сайты
+}
+
 // Функция для обновления action и placeholder на основе куки
 function updateSearchEngine() {
 	const selectedEngine = searchEngineSelect.value
@@ -68,12 +93,13 @@ searchEngineSelect.addEventListener('change', updateSearchEngine)
 
 // Перехват отправки формы для проверки на домен
 searchForm.addEventListener('submit', event => {
-	const query = searchBar.value.trim()
+	let query = searchBar.value.trim()
 
+	// Если введен домен
 	if (query.match(/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
 		event.preventDefault()
 		const url = query.startsWith('http') ? query : `https://${query}`
-		window.location.href = url
+		window.location.href = url // Перенаправляем на сайт
 	} else if (!query) {
 		event.preventDefault()
 		alert('Please enter a search query or URL.')
@@ -91,7 +117,7 @@ document.addEventListener('keydown', event => {
 	} else if (event.ctrlKey && event.key === '4') {
 		searchEngineSelect.value = 'duckduckgo'
 	}
-	updateSearchEngine()
+	updateSearchEngine() // Обновляем поисковик после изменения
 })
 
 // Всплывающая подсказка при наведении на выпадающий список
@@ -100,3 +126,51 @@ searchEngineSelect.title = `Available options:
 2. Yahoo
 3. Bing
 4. DuckDuckGo`
+
+// Логика для динамической подстановки доменов
+searchBar.addEventListener('input', () => {
+	let query = searchBar.value.trim().toLowerCase()
+
+	// Если введено слово без домена, подставляем .com или .org в зависимости от сайта
+	if (sites[query]) {
+		searchBar.value = sites[query] // Подставляем полный домен
+		infoWindow.innerHTML = `Go to: <a href="https://${sites[query]}" target="_blank">https://${sites[query]}</a>`
+		infoWindow.style.display = 'block'
+	} else if (query.match(/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+		// Если введен домен, показываем ссылку
+		infoWindow.innerHTML = `Go to: <a href="https://${query}" target="_blank">https://${query}</a>`
+		infoWindow.style.display = 'block'
+	} else {
+		infoWindow.style.display = 'none'
+	}
+})
+
+// Закрытие инфо-окна
+closeButton.addEventListener('click', () => {
+	infoWindow.style.display = 'none'
+})
+
+// Функция для отображения уведомлений
+function showNotification(message, type = 'info') {
+	const notification = document.createElement('div')
+	notification.classList.add('notification', type)
+	notification.textContent = message
+	document.body.appendChild(notification)
+	setTimeout(() => notification.remove(), 5000)
+}
+
+// Функция для очистки поля поиска
+function clearSearchField() {
+	searchBar.value = ''
+	searchBar.focus()
+}
+
+// Функция для установки фокуса на строку поиска
+function focusSearchField() {
+	searchBar.focus()
+}
+
+// Пример использования функции для уведомлений
+showNotification('Page Loaded', 'success')
+showNotification('Something went wrong!', 'error')
+

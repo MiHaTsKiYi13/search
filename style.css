@@ -9,7 +9,7 @@
 
 /* Фон и выравнивание по центру */
 body {
-    background: linear-gradient(135deg, #0a0a0a, #141414);
+    background: linear-gradient(135deg, #1a1a1a, #232323);
     color: #E0E0E0;
     display: flex;
     justify-content: center;
@@ -17,8 +17,8 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background-size: 300% 300%;
-    animation: gradientBG 15s ease infinite; /* Эффект смены градиента */
+    background-size: 400% 400%;
+    animation: gradientBG 30s ease infinite; /* Увеличена плавность анимации */
 }
 
 /* Анимация для смены фона */
@@ -42,31 +42,32 @@ body {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    animation: fadeInContainer 1.2s ease-out forwards;
+    animation: fadeInContainer 1.5s ease-out forwards; /* Увеличена длительность анимации */
     opacity: 0;
+    transform: scale(0.95);
 }
 
 /* Анимация появления контейнера */
 @keyframes fadeInContainer {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(30px) scale(0.95);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 /* Оформление контейнера с контентом */
 .content {
-    background: linear-gradient(145deg, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.9));
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: fadeIn 0.8s ease-out;
+    background: linear-gradient(145deg, rgba(45, 45, 45, 0.95), rgba(40, 40, 40, 0.9));
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeIn 1s ease-out;
 }
 
 /* Анимация появления */
@@ -83,111 +84,124 @@ body {
 
 /* Эффект при наведении на контейнер */
 .content:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    transition: all 0.4s ease;
 }
 
 /* Оформление изображения */
 .icon {
-    width: 75px; /* Оригинальный размер */
-    height: 75px;
-    margin-bottom: 20px;
-    border-radius: 50%; /* Закруглённость */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
 /* Эффект при наведении на иконку */
 .icon:hover {
-    transform: scale(1.15) rotate(-5deg);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transform: scale(1.25) rotate(10deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Поле ввода */
 .search-bar {
-    width: 340px;
-    padding: 14px;
-    border: 2px solid #3a3a3a;
+    width: 360px;
+    padding: 16px;
+    border: 2px solid #333;
     border-radius: 50px;
-    background-color: rgba(40, 40, 40, 0.9);
+    background-color: rgba(45, 45, 45, 0.95);
     color: #e0e0e0;
     font-size: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease-in-out;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Анимация при вводе текста */
+/* Анимация при фокусе */
 .search-bar:focus {
-    border-color: #00aaff;
-    background: linear-gradient(145deg, rgba(50, 50, 50, 1), rgba(30, 30, 30, 1));
-    box-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
+    border-color: #0078ff;
+    background: linear-gradient(145deg, rgba(55, 55, 55, 1), rgba(45, 45, 45, 1));
+    box-shadow: 0 0 25px rgba(0, 120, 255, 0.8);
 }
 
 /* Кнопка поиска */
 .search-button {
-    padding: 12px 30px;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 173, 255, 0.9));
+    padding: 14px 32px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(0, 173, 255, 1));
     color: white;
     border: none;
     border-radius: 50px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), box-shadow 0.2s ease-in-out;
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), box-shadow 0.3s ease-in-out;
 }
 
 /* Эффект при наведении на кнопку */
 .search-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.6);
 }
 
 /* Эффект при нажатии на кнопку */
 .search-button:active {
     transform: scale(0.95);
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
 }
 
 /* Выпадающий список */
 .search-engine-select {
-    background-color: rgba(40, 40, 40, 0.9);
-    border: 2px solid #3a3a3a;
+    background-color: rgba(45, 45, 45, 0.95);
+    border: 2px solid #333;
     border-radius: 50px;
     color: #e0e0e0;
-    font-size: 15px; /* Фиксируем размер шрифта */
-    font-family: 'Poppins', sans-serif; /* Фиксируем шрифт */
-    padding: 10px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px;
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
 /* Эффект при наведении на выпадающий список */
 .search-engine-select:hover {
-    background: linear-gradient(135deg, rgba(50, 50, 50, 1), rgba(40, 40, 40, 0.9));
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(60, 60, 60, 1), rgba(45, 45, 45, 0.95));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Убираем изменение стилей текста при взаимодействии */
 .search-engine-select:focus,
 .search-engine-select:active {
-    font-size: 15px; /* Остается неизменным */
-    font-family: 'Poppins', sans-serif; /* Остается неизменным */
-    color: #e0e0e0; /* Остается неизменным */
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #e0e0e0;
 }
-
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .search-bar {
-        width: 90%;
+        width: 80%;
     }
 }
 
 @media (max-width: 480px) {
     .search-button {
         width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
     }
 }

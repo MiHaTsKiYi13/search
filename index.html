@@ -4,35 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Tab</title>
     <!-- Добавление иконки -->
-    <link rel="icon" href="icon.svg" type="image/jpeg">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <a href="https://mihatskiyi13.github.io/de3nake.mihatskiyi13/" target="_blank">
-                <img src="icon.jpg" alt="Icon" class="icon">
+    <main class="container">
+        <section class="content">
+            <!-- Логотип с ссылкой -->
+            <a href="https://mihatskiyi13.github.io/de3nake.mihatskiyi13/" target="_blank" class="logo-link">
+                <img src="icon.jpg" alt="MiHaTsKiYi Logo" class="icon">
             </a>
+            <!-- Выпадающий список для выбора поисковой системы -->
             <div class="search-options">
-                <select name="search-engine" class="search-engine-select">
+                <select id="search-engine" name="search-engine" class="search-engine-select">
                     <option value="https://duckduckgo.com/" selected>DuckDuckGo</option>
-                    <option value="google">Google</option>
-                    <option value="yahoo">Yahoo</option>
-                    <option value="bing">Bing</option>
+                    <option value="https://www.google.com/search">Google</option>
+                    <option value="https://search.yahoo.com/search">Yahoo</option>
+                    <option value="https://www.bing.com/search">Bing</option>
                 </select>
             </div>
+            <!-- Форма поиска -->
             <form id="search-form" action="https://duckduckgo.com/" method="get" class="search-form">
-                <input type="text" name="q" placeholder="Search with DuckDuckGo" class="search-bar" required>
+                <input type="text" name="q" id="search-bar" placeholder="Search with DuckDuckGo" class="search-bar"
+                    required>
                 <button type="submit" class="search-button">Search</button>
             </form>
-        </div>
-    </div>
-
-
+        </section>
+    </main>
 </body>
 
 </html>
